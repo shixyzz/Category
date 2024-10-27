@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категорії товарів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category-card {
+            position: relative;
+            background-color: #0073e6;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background-color: #005bb5;
+        }
+
+        .category-title {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="categories-container" id="categoriesList">
+    <!-- Категории будут добавлены с помощью JavaScript -->
+</div>
+
+<script>
+    const categories = [
+        { name: "Смартфони", icon: "📱" },
+        { name: "Ноутбуки", icon: "💻" },
+        { name: "Телевізори", icon: "📺" },
+        { name: "Аксесуари", icon: "🎧" },
+        { name: "Планшети", icon: "📲" },
+        { name: "Розумний дім", icon: "🏠" },
+        { name: "Камери", icon: "📷" },
+        { name: "Побутова техніка", icon: "🍽️" },
+    ];
+
+    const categoriesContainer = document.getElementById("categoriesList");
+
+    categories.forEach(category => {
+        const categoryCard = document.createElement("div");
+        categoryCard.classList.add("category-card");
+
+        const categoryIcon = document.createElement("div");
+        categoryIcon.classList.add("category-icon");
+        categoryIcon.textContent = category.icon;
+
+        const categoryTitle = document.createElement("div");
+        categoryTitle.classList.add("category-title");
+        categoryTitle.textContent = category.name;
+
+        categoryCard.appendChild(categoryIcon);
+        categoryCard.appendChild(categoryTitle);
+        categoriesContainer.appendChild(categoryCard);
+    });
+</script>
+
+</body>
+</html>
